@@ -1,1 +1,27 @@
-<h1> INDEX.HTML</h1>
+<div class="container">
+<h1> My Tasks</h1>
+
+<% @tasks.each do |task|%>
+
+<p>
+  <%if task.completed %>
+    <i class="fas fa-check-circle"></i>
+
+  <% else %>
+    <i class="far fa-square"></i>
+
+  <% end %>
+  <%= link_to task.title, task_path(task.id) %>
+  <%= link_to "", task_path(task.id),method: :delete,data: {confirm:"Are you sure?"}, class: "fas fa-trash-alt" %>
+
+<% end %>
+</p>
+
+
+<%= link_to "+ new task", new_path , class:"btn btn-primary"%>
+</div>
+
+
+
+
+
